@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:legitcaller/registro/registroPage.dart';
+import 'package:legitcaller/splash.dart';
+import 'package:provider/provider.dart';
+
+import 'provider/loadingProvider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +15,28 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const RegistroPage(),
+    return MultiProvider(
+       providers: [
+        ChangeNotifierProvider<LoadingProvider>(
+          create: (_) => LoadingProvider(),
+        ),
+      ],
+      
+      builder: (context, snapshot) {
+        return Builder(
+          builder: (context) {
+            return MaterialApp(
+              title: 'Flutter Demo',
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                useMaterial3: true,
+              ),
+              home: const Splash(),
+            );
+          }
+        );
+      }
     );
   }
 }
