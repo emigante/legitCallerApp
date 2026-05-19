@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:legitcaller/login/loginPage.dart';
-import 'package:legitcaller/perfil/perfilPage.dart';
-import 'package:legitcaller/registro/registroPage.dart';
 
 
 class Splash extends StatefulWidget {
@@ -54,7 +52,7 @@ class _SplashState extends State<Splash> {
                     Container(
                         alignment: Alignment.center,
                         padding: const EdgeInsets.only(left: 44, right: 44),
-                        margin: const EdgeInsets.only(top: 80),
+                        margin: const EdgeInsets.only(top: 20),
                         child: Text("Verify who's really calling you",
                             style: TextStyle(fontSize: scale! > 1.6 ? 16: 24, color: Colors.black, fontWeight: FontWeight.bold))),
                     Container(
@@ -147,7 +145,7 @@ class _SplashState extends State<Splash> {
                       child: Container(
                           width: w,
                           //height: 220,
-                          margin:const EdgeInsets.only(left: 30, right: 30, top: 50),
+                          margin:const EdgeInsets.only(left: 30, right: 30, top: 90),
                           padding: const EdgeInsets.only(top: 10, bottom: 10),
                           alignment: Alignment.center,
                           decoration: const BoxDecoration(

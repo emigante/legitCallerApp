@@ -54,7 +54,7 @@ class _PerfilPageState extends State<PerfilPage> {
                        Container(
                           
                           child: const Text("ABC12345", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),)),
-                        const Text("Already share with the agent", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey),),
+                        const Text("Share this with the agent when the call begins", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),),
                     ],
                   ),
                 ),
