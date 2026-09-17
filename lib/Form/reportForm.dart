@@ -85,10 +85,10 @@ class _ReportFormState extends State<ReportForm> {
                 margin: const EdgeInsets.only(top: 35, right: 25, left: 25),
                 child: InkWell(
                   onTap: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const PerfilPage()),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => const PerfilPage()),
+                    // );
 
                   },
                   child: Container(

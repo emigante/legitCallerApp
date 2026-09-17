@@ -60,8 +60,10 @@ class DataProvider {
     UserData? result;
 
     final body = {
-        "username": email,
-        "password": pwd
+        
+    "username": "alonzo.verdugo@gmail.com",
+    "password": "123456789"
+
     };
 
     try {

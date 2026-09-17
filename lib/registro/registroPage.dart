@@ -49,14 +49,14 @@ class _RegistroPageState extends State<RegistroPage> {
                   onTap: () async {
                     var result = await BarcodeScanner.scan();
 
-                    if(result.rawContent.isNotEmpty){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => PerfilPage()),
-                      );
-                    }else{
-                      return;
-                    }
+                    // if(result.rawContent.isNotEmpty){
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(builder: (context) => PerfilPage()),
+                    //   );
+                    // }else{
+                    //   return;
+                    // }
                   },
                   child: Container(
                     width: 150,
@@ -80,10 +80,10 @@ class _RegistroPageState extends State<RegistroPage> {
                 margin: EdgeInsets.only(top: 15),
                 child: InkWell(
                   onTap: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PerfilPage()),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => PerfilPage()),
+                    // );
                   },
                   child: Container(
                     width: 150,

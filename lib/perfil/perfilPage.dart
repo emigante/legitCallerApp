@@ -2,11 +2,14 @@ import 'dart:math';
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:legitcaller/Form/reportForm.dart';
+import 'package:legitcaller/conection/conection.dart';
+import 'package:legitcaller/models/userData.dart';
 import 'package:slide_countdown/slide_countdown.dart';
 
 class PerfilPage extends StatefulWidget {
-  const PerfilPage({super.key});
+  UserData? userData;
+  PerfilPage({super.key, required this.userData});
+  //const PerfilPage({super.key});
 
   @override
   State<PerfilPage> createState() => _PerfilPageState();
@@ -18,6 +21,7 @@ class _PerfilPageState extends State<PerfilPage> {
   String code = "";
   bool newCode = false;
   Key _countdownKey = UniqueKey(); // Llave para forzar el reinicio
+  DatabaseServices db = DatabaseServices();
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +57,7 @@ class _PerfilPageState extends State<PerfilPage> {
                     children: [
                        Container(
                           
-                          child: const Text("ABC12345", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),)),
+                          child:  Text(widget.userData?.data.contracts.first.membership.toString() ?? "", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),)),
                         const Text("Share this with the agent when the call begins", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),),
                     ],
                   ),
@@ -64,7 +68,7 @@ class _PerfilPageState extends State<PerfilPage> {
                   padding: const EdgeInsets.only(left: 10, top: 5, bottom: 5),
                   decoration: BoxDecoration(
                     color: const Color(0xFFFFF9E6),
-                    border: Border.all(color: const  Color(0xFFA67C00)),
+                    border: Border.all(color: const  Color(0xFFD6900A)),
                   
                     borderRadius: const BorderRadius.all(
                       Radius.circular(15.0) //                 <--- border radius here
@@ -77,12 +81,13 @@ class _PerfilPageState extends State<PerfilPage> {
                       
                        Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                          children: [
-                          const Icon(Icons.info, color: Color(0xFFA67C00),),
+                          const Icon(Icons.info, color: Color(0xFFD6900A),),
                           Container(
                               width: w-100,
                               child: const Text("Only share your ID with the agent on the call. Never share password, card numbers, of other codes.", 
-                              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Color(0xFFA67C00)),)),
+                              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Color(0xFFD6900A)),)),
                          ],
                        ),
                        // const Text("Already share with the agent", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey),),
@@ -232,7 +237,7 @@ class _PerfilPageState extends State<PerfilPage> {
               !(show) ?  Container(
                 margin: const EdgeInsets.only(top: 35, right: 5),
                 child: InkWell(
-                  onTap: (){
+                  onTap: () async {
 
                     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
                     code= String.fromCharCodes(Iterable.generate(
@@ -242,6 +247,8 @@ class _PerfilPageState extends State<PerfilPage> {
                       code = code;
                       _countdownKey = UniqueKey();
                     });
+
+                    await db.guardarDatosRegistro(widget.userData?.data.contracts.first.contractId.toString() ?? "", code);
                   },
                   child: Container(
                     width: w,
@@ -262,7 +269,7 @@ class _PerfilPageState extends State<PerfilPage> {
               ): Container(
                 margin: const EdgeInsets.only(top: 35, right: 5),
                 child: InkWell(
-                  onTap: (){
+                  onTap: () async {
 
                     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
                     code= String.fromCharCodes(Iterable.generate(
@@ -271,6 +278,9 @@ class _PerfilPageState extends State<PerfilPage> {
                       code = code;
                       _countdownKey = UniqueKey();
                     });
+
+
+                    await db.guardarDatosRegistro(widget.userData?.data.contracts.first.contractId.toString() ?? "", code);
                     
                   },
                   child: Container(

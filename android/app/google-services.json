@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "78093597529",
+    "project_id": "legitcaller",
+    "storage_bucket": "legitcaller.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78093597529:android:cf9b2f998c8aeac3592a48",
+        "android_client_info": {
+          "package_name": "com.sunset.legitcaller"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhlyIVQrbyLyYSbG5lBX478nLcAuKBy5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

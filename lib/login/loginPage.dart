@@ -151,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
 
                     Navigator.pushReplacement( // Usar pushReplacement para que no puedan volver al login con el botón de atrás
                       context,
-                      MaterialPageRoute(builder: (context) => const PerfilPage()),
+                      MaterialPageRoute(builder: (context) =>  PerfilPage(userData: result,)),
                     );
                   } else {
                     // 4. Si el status no es 200, hay que desbloquear para que reintenten
