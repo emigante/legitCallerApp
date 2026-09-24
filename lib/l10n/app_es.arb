@@ -5,6 +5,7 @@
   "punto2": "Genera un código de un solo uso y espera a que el agente te lo repita",
   "punto3": "Si no pueden confirmarlo, cuelga inmediatamente",
   "empezar": "Empezar",
-  "antifraude": "Preteccion antifraude"
-  
+  "antifraude": "Protección antifraude",
+  "ingresar": "Iniciar sesión",
+  "ingresar_sub": "Accede a tu perfil de verificación"
 }

@@ -5,5 +5,7 @@
   "punto2": "Generate a one-time code and wait for the agent to read it back to you",
   "punto3": "If they can't confirm it, hang up immediately",
   "empezar": "Get started",
-  "antifraude": "Anti-fraud protection"
+  "antifraude": "Anti-fraud protection",
+  "ingresar": "Sign in",
+  "ingresar_sub": "Access your verification profile"
 }

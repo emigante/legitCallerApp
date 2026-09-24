@@ -30,4 +30,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get antifraude => 'Anti-fraud protection';
+
+  @override
+  String get ingresar => 'Sign in';
+
+  @override
+  String get ingresar_sub => 'Access your verification profile';
 }

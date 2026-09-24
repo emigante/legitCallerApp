@@ -139,6 +139,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Anti-fraud protection'**
   String get antifraude;
+
+  /// No description provided for @ingresar.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get ingresar;
+
+  /// No description provided for @ingresar_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Access your verification profile'**
+  String get ingresar_sub;
 }
 
 class _AppLocalizationsDelegate

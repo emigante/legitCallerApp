@@ -30,5 +30,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get empezar => 'Empezar';
 
   @override
-  String get antifraude => 'Preteccion antifraude';
+  String get antifraude => 'Protección antifraude';
+
+  @override
+  String get ingresar => 'Iniciar sesión';
+
+  @override
+  String get ingresar_sub => 'Accede a tu perfil de verificación';
 }

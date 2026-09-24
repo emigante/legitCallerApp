@@ -1,4 +1,4 @@
-import 'package:barcode_scan2/barcode_scan2.dart';
+// import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:legitcaller/perfil/perfilPage.dart';
 import 'package:legitcaller/registro/stepsPage.dart';
@@ -47,7 +47,7 @@ class _RegistroPageState extends State<RegistroPage> {
                 margin: EdgeInsets.only(top: 15),
                 child: InkWell(
                   onTap: () async {
-                    var result = await BarcodeScanner.scan();
+                    // var result = await BarcodeScanner.scan();
 
                     // if(result.rawContent.isNotEmpty){
                     //   Navigator.push(

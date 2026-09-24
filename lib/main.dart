@@ -4,9 +4,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:legitcaller/firebase_options.dart';
 import 'package:legitcaller/l10n/app_localizations.dart';
 import 'package:legitcaller/models/preferenciasUsuario.dart';
+import 'package:legitcaller/provider/LocalProvider.dart';
 import 'package:legitcaller/splash.dart';
 import 'package:legitcaller/widgets/splashView.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'provider/loadingProvider.dart';
 
@@ -15,7 +17,17 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  SharedPreferences usuario = await PreferenciasUsuario().initPref();
+
+  final usrPref =
+      PreferenciasUsuario(); //Inicializar la clase para almacenar parémetros que se usan durante el procesp de precheckin.
+  await usrPref.initPref();
+  //await usuario.initPref();
+
+  runApp(ChangeNotifierProvider(
+    create: (_) => LocaleProvider(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -46,6 +58,8 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    
+    final providerLocale = Provider.of<LocaleProvider>(context);
     return MultiProvider(
         providers: [
           ChangeNotifierProvider<LoadingProvider>(
@@ -61,6 +75,7 @@ class _MyAppState extends State<MyApp> {
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                 useMaterial3: true,
               ),
+               locale: providerLocale.locale,
               localizationsDelegates: [
                 AppLocalizations.delegate, // Add this line
                 ...GlobalMaterialLocalizations.delegates,

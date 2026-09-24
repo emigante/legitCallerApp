@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:legitcaller/perfil/perfilPage.dart';
 import 'package:legitcaller/services/auth.dart';
+import 'package:legitcaller/widgets/SelectIdioma.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:provider/provider.dart';
-
+import 'package:legitcaller/l10n/app_localizations.dart';
 import '../provider/loadingProvider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,12 +35,12 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             margin: const EdgeInsets.only(left: 30),
             alignment: Alignment.centerLeft,
-            child: const Text("Sign in", style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),),
+            child:  Text( AppLocalizations.of(context)!.ingresar, style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),),
           ),
           Container(
             margin: const EdgeInsets.only(left: 30),
             alignment: Alignment.centerLeft,
-            child: const Text("Access your verification profile", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.grey),),
+            child:  Text( AppLocalizations.of(context)!.ingresar_sub, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.grey),),
           ),
           Container(
             alignment: Alignment.centerLeft,
@@ -120,6 +121,10 @@ class _LoginPageState extends State<LoginPage> {
             alignment: Alignment.centerRight,
             child: const Text("Forgot password?", style: TextStyle(fontSize: 12, decoration: TextDecoration.underline,),),
           ),
+          Container(
+                    margin: EdgeInsets.only(left: 35, top: 25),
+                    alignment: Alignment.center,
+                    child: Salectidioma()),
           Container(
             margin: const EdgeInsets.only(top: 35),
             child: InkWell(
