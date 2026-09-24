@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:legitcaller/perfil/perfilPage.dart';
 import 'package:legitcaller/services/auth.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/loadingProvider.dart';
@@ -18,6 +20,8 @@ class _LoginPageState extends State<LoginPage> {
   bool _obscureText = true;
   DataProvider _db = DataProvider();
   double w=0, h=0;
+  final LocalAuthentication _auth = LocalAuthentication();
+
 
   @override
   Widget build(BuildContext context) {
@@ -194,5 +198,41 @@ class _LoginPageState extends State<LoginPage> {
         ]),
       ),
     );
+  }
+
+  Future<bool> checkBiometrics() async {
+    try {
+      return await _auth.canCheckBiometrics;
+    } on PlatformException catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  // 2. Obtener lista de biometrías disponibles (huella, cara)
+  Future<List<BiometricType>> getAvailableBiometrics() async {
+    try {
+      return await _auth.getAvailableBiometrics();
+    } on PlatformException catch (e) {
+      print(e);
+      return [];
+    }
+  }
+
+  // 3. Autenticar al usuario
+  Future<bool> authenticate() async {
+    try {
+      return await _auth.authenticate(
+        localizedReason: 'Por favor, autentícate para acceder',
+        biometricOnly: true, 
+        //  options: const AuthenticationOptions(
+        //   biometricOnly: true,// Solo huella/cara, no PIN
+        //   stickyAuth: true// Mantiene la app activa si se pausa brevemente
+        // )
+        );
+    } on PlatformException catch (e) {
+      print(e);
+      return false;
+    }
   }
 }

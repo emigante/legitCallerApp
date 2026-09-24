@@ -30,6 +30,7 @@ class _PerfilPageState extends State<PerfilPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Caller verification", style: TextStyle(fontSize: 16),),
+        leading: Icon(Icons.close_sharp),
       ),
       body: SingleChildScrollView(
         child: Column(children: [
