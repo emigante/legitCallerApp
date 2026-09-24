@@ -1,13 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:legitcaller/firebase_options.dart';
+import 'package:legitcaller/l10n/app_localizations.dart';
 import 'package:legitcaller/splash.dart';
 import 'package:provider/provider.dart';
 
 import 'provider/loadingProvider.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();  
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -21,28 +23,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-       providers: [
-        ChangeNotifierProvider<LoadingProvider>(
-          create: (_) => LoadingProvider(),
-        ),
-      ],
-      
-      builder: (context, snapshot) {
-        return Builder(
-          builder: (context) {
+        providers: [
+          ChangeNotifierProvider<LoadingProvider>(
+            create: (_) => LoadingProvider(),
+          ),
+        ],
+        builder: (context, snapshot) {
+          return Builder(builder: (context) {
             return MaterialApp(
-              title: 'Flutter Demo',
+              title: 'Caller App',
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                 useMaterial3: true,
               ),
+              localizationsDelegates: [
+                AppLocalizations.delegate, // Add this line
+                ...GlobalMaterialLocalizations.delegates,
+              ],
+              supportedLocales: [
+                Locale('en'),
+                Locale('es'),
+              ],
               home: const Splash(),
             );
-          }
-        );
-      }
-    );
+          });
+        });
   }
 }
 

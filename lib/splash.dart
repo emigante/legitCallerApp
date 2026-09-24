@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:legitcaller/l10n/app_localizations.dart';
 import 'package:legitcaller/login/loginPage.dart';
 
 
@@ -44,7 +45,7 @@ class _SplashState extends State<Splash> {
                         child: Row(
                           children: [
                             const Icon(Icons.circle, size: 12, color: Color(0xFF0a6641),),
-                            Text("Anti-fraud protection",
+                            Text(AppLocalizations.of(context)!.antifraude,
                                 style: TextStyle(fontSize: scale! > 1.6 ? 16: 14, color: const Color(0xFF0a6641), fontWeight: FontWeight.bold)),
                           ],
                         )),
@@ -53,11 +54,11 @@ class _SplashState extends State<Splash> {
                         alignment: Alignment.center,
                         padding: const EdgeInsets.only(left: 44, right: 44),
                         margin: const EdgeInsets.only(top: 20),
-                        child: Text("Verify who's really calling you",
+                        child: Text(AppLocalizations.of(context)!.antesCompartir,
                             style: TextStyle(fontSize: scale! > 1.6 ? 16: 24, color: Colors.black, fontWeight: FontWeight.bold))),
                     Container(
                         padding: const EdgeInsets.only(left: 44, right: 44, top: 25),
-                        child: Text("Before sharing any information, use this app to confirm the caller is genuinely, from Sunset World",
+                        child: Text(AppLocalizations.of(context)!.antesCompartir_sub,
                           style: TextStyle(
                               fontSize: scale! > 1.6 ? 12: 16, color:const Color.fromRGBO(65, 63, 67, 0.5)),
                         )),
@@ -81,7 +82,7 @@ class _SplashState extends State<Splash> {
                           const Icon(Icons.circle, size: 40, color: Colors.black,),
                           Container(
                             width: 250,
-                            child: Text("Share your permanents ID when the call begins",
+                            child: Text(AppLocalizations.of(context)!.punto1,
                                 style: TextStyle(fontSize: scale! > 1.6 ? 16: 14, color: Color.fromARGB(255, 50, 50, 50), fontWeight: FontWeight.bold)),
                           ),
                         ],
@@ -105,7 +106,7 @@ class _SplashState extends State<Splash> {
                           const Icon(Icons.circle, size: 40, color: Colors.black,),
                           Container(
                             width: 250,
-                            child: Text("Generate a one-time code and wait for the agent to read it back to you",
+                            child: Text(AppLocalizations.of(context)!.punto2,
                                 style: TextStyle(fontSize: scale! > 1.6 ? 16: 14, color: Color.fromARGB(255, 50, 50, 50), fontWeight: FontWeight.bold)),
                           ),
                         ],
@@ -129,7 +130,7 @@ class _SplashState extends State<Splash> {
                           const Icon(Icons.circle, size: 40, color: Colors.black,),
                           Container(
                             width: 250,
-                            child: Text("If they can't confirm it - hang up inmediately",
+                            child: Text(AppLocalizations.of(context)!.punto3,
                                 style: TextStyle(fontSize: scale! > 1.6 ? 16: 14, color: Color.fromARGB(255, 50, 50, 50), fontWeight: FontWeight.bold)),
                           ),
                         ],
@@ -156,7 +157,7 @@ class _SplashState extends State<Splash> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Get started ",
+                                AppLocalizations.of(context)!.empezar,
                                 style: TextStyle(fontSize: scale! > 1.6 ? 10 : 16, color: Colors.white),
                               ),
                               const Icon(
