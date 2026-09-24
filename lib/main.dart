@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:legitcaller/firebase_options.dart';
 import 'package:legitcaller/l10n/app_localizations.dart';
+import 'package:legitcaller/models/preferenciasUsuario.dart';
 import 'package:legitcaller/splash.dart';
+import 'package:legitcaller/widgets/splashView.dart';
 import 'package:provider/provider.dart';
 
 import 'provider/loadingProvider.dart';
@@ -16,9 +18,31 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+
+class _MyAppState extends State<MyApp> {
+
+  late PreferenciasUsuario usuario;
+
+  
+  _initPreference() async {
+    usuario = PreferenciasUsuario();
+    await usuario.initPref();
+    await Future.delayed(const Duration(seconds: 1));
+  }
+
+   @override
+  void initState() {
+    super.initState();
+    _initPreference();
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -45,6 +69,7 @@ class MyApp extends StatelessWidget {
                 Locale('en'),
                 Locale('es'),
               ],
+              builder: LoadingScreen.init(),
               home: const Splash(),
             );
           });
