@@ -7,5 +7,11 @@
   "empezar": "Get started",
   "antifraude": "Anti-fraud protection",
   "ingresar": "Sign in",
-  "ingresar_sub": "Access your verification profile"
+  "ingresar_sub": "Access your verification profile",
+  "correo":"Email",
+  "contrasena":"Password",
+  "olvido_contrasena":"Forgot password?",
+  "idioma":"Language",
+  "iniciar_sesion":"Log in",
+  "complete_campos":"Fill in all fields to log in"
 }

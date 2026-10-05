@@ -4,6 +4,7 @@ import 'package:legitcaller/provider/LocalProvider.dart';
 // import 'package:origins/bloc/usuario_bloc.dart';
 // import 'package:origins/provider/LocalProvider.dart';
 import 'package:provider/provider.dart';
+import 'package:legitcaller/l10n/app_localizations.dart';
 
 class Salectidioma extends StatefulWidget {
   const Salectidioma({super.key});
@@ -28,8 +29,8 @@ class _SalectidiomaState extends State<Salectidioma> {
       children: [
         Container(
           margin: const EdgeInsets.only(right: 20),
-          child: const Text(
-            "Idioma:",
+          child:  Text(
+            AppLocalizations.of(context)!.idioma,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
           ),
         ),
@@ -69,6 +70,7 @@ class _SalectidiomaState extends State<Salectidioma> {
                 'English',
                 style: style2,
               ),
+              
             ),
              PopupMenuItem(
               value: 'es',

@@ -7,5 +7,11 @@
   "empezar": "Empezar",
   "antifraude": "Protección antifraude",
   "ingresar": "Iniciar sesión",
-  "ingresar_sub": "Accede a tu perfil de verificación"
+  "ingresar_sub": "Accede a tu perfil de verificación",
+  "correo":"Correo",
+  "contrasena":"Contraseña",
+  "olvido_contrasena":"¿Olvidó su contraseña?",
+  "idioma":"Idioma",
+  "iniciar_sesion":"Iniciar Sesión",
+  "complete_campos":"Complete todos los campos para iniciar sesión"
 }

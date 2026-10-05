@@ -36,4 +36,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ingresar_sub => 'Access your verification profile';
+
+  @override
+  String get correo => 'Email';
+
+  @override
+  String get contrasena => 'Password';
+
+  @override
+  String get olvido_contrasena => 'Forgot password?';
+
+  @override
+  String get idioma => 'Language';
+
+  @override
+  String get iniciar_sesion => 'Log in';
+
+  @override
+  String get complete_campos => 'Fill in all fields to log in';
 }

@@ -151,6 +151,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Access your verification profile'**
   String get ingresar_sub;
+
+  /// No description provided for @correo.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get correo;
+
+  /// No description provided for @contrasena.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get contrasena;
+
+  /// No description provided for @olvido_contrasena.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get olvido_contrasena;
+
+  /// No description provided for @idioma.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get idioma;
+
+  /// No description provided for @iniciar_sesion.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get iniciar_sesion;
+
+  /// No description provided for @complete_campos.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill in all fields to log in'**
+  String get complete_campos;
 }
 
 class _AppLocalizationsDelegate
