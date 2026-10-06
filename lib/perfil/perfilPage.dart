@@ -3,7 +3,10 @@ import 'dart:math';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:legitcaller/conection/conection.dart';
+import 'package:legitcaller/login/loginPage.dart';
 import 'package:legitcaller/models/userData.dart';
+import 'package:legitcaller/provider/loadingProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:slide_countdown/slide_countdown.dart';
 
 class PerfilPage extends StatefulWidget {
@@ -30,7 +33,17 @@ class _PerfilPageState extends State<PerfilPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Caller verification", style: TextStyle(fontSize: 16),),
-        leading: Icon(Icons.close_sharp),
+        leading: InkWell(
+          onTap: (){
+            Provider.of<LoadingProvider>(context, listen: false).setLoad(true);
+            Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
+            Provider.of<LoadingProvider>(context, listen: false).setLoad(false);
+                
+          },
+          child:Icon(Icons.close_sharp)),
       ),
       body: SingleChildScrollView(
         child: Column(children: [
