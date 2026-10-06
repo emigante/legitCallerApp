@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:legitcaller/conection/conection.dart';
 import 'package:legitcaller/models/userData.dart';
 import 'package:slide_countdown/slide_countdown.dart';
+import 'package:legitcaller/l10n/app_localizations.dart';
 
 class PerfilPage extends StatefulWidget {
   UserData? userData;
@@ -29,7 +30,7 @@ class _PerfilPageState extends State<PerfilPage> {
     h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Caller verification", style: TextStyle(fontSize: 16),),
+        title:  Text(AppLocalizations.of(context)!.caller_verification, style: TextStyle(fontSize: 16),),
         leading: Icon(Icons.close_sharp),
       ),
       body: SingleChildScrollView(
@@ -39,7 +40,7 @@ class _PerfilPageState extends State<PerfilPage> {
             child:  Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("YOUR PERMANENT ID", style: TextStyle(fontSize: 14, color: Colors.grey, fontWeight: FontWeight.bold),),
+                 Text(AppLocalizations.of(context)!.id_permanente, style: TextStyle(fontSize: 14, color: Colors.grey, fontWeight: FontWeight.bold),),
                // const Text("Only share this ID with the caller NOTHING ELSE", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.grey),),
                 Container(
                   width: w,
@@ -59,7 +60,7 @@ class _PerfilPageState extends State<PerfilPage> {
                        Container(
                           
                           child:  Text(widget.userData?.data.contracts.first.membership.toString() ?? "", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),)),
-                        const Text("Share this with the agent when the call begins", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),),
+                         Text(AppLocalizations.of(context)!.comparte_codigo, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),),
                     ],
                   ),
                 ),
@@ -87,7 +88,7 @@ class _PerfilPageState extends State<PerfilPage> {
                           const Icon(Icons.info, color: Color(0xFFD6900A),),
                           Container(
                               width: w-100,
-                              child: const Text("Only share your ID with the agent on the call. Never share password, card numbers, of other codes.", 
+                              child: Text(AppLocalizations.of(context)!.comparte_codigo, 
                               style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Color(0xFFD6900A)),)),
                          ],
                        ),
@@ -98,7 +99,7 @@ class _PerfilPageState extends State<PerfilPage> {
 
                 (!show) ?   Container(
                   margin: const EdgeInsets.only(top: 25),
-                  child: const Text("After sharing your ID, tap Generate Code. The agent must read the code back to you - if they can't, hang up immediately.", style: TextStyle(fontSize: 14, color: Colors.grey, fontWeight: FontWeight.bold),),
+                  child: Text(AppLocalizations.of(context)!.solo_comparte, style: TextStyle(fontSize: 14, color: Colors.grey, fontWeight: FontWeight.bold),),
 
                 ) : const SizedBox(),
 
@@ -119,7 +120,7 @@ class _PerfilPageState extends State<PerfilPage> {
                     ),
                     child: Center(
                       child: Text(
-                        'Code will appear here\nafter you tap Generate',
+                       AppLocalizations.of(context)!.codigo_aparecera,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.grey.shade400,
@@ -152,7 +153,7 @@ class _PerfilPageState extends State<PerfilPage> {
                    
                     Container(
                       margin: const EdgeInsets.only(right: 25, top: 20, bottom: 10),
-                      child: const Text("ONE-TIME VERIFICATION CODE", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),)),
+                      child:  Text(AppLocalizations.of(context)!.codigo_solo_uso, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),)),
                      Container(
                         decoration: BoxDecoration(
                           border: Border.all(
@@ -174,7 +175,7 @@ class _PerfilPageState extends State<PerfilPage> {
                            Container(
                             alignment: Alignment.centerLeft,
                             margin: const EdgeInsets.only(left: 20),
-                            child: const Text("Wait for the agent to read this back to you", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),)),
+                            child:  Text(AppLocalizations.of(context)!.esperar_agente, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),)),
                             
                            
                            Container(
@@ -186,7 +187,7 @@ class _PerfilPageState extends State<PerfilPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
-                                  child: const Text("Expires in", style: TextStyle(fontSize: 12),),
+                                  child:  Text(AppLocalizations.of(context)!.expira_en, style: TextStyle(fontSize: 12),),
                                 ),
                                 SlideCountdownSeparated(     
                                   key: _countdownKey,     
@@ -225,7 +226,7 @@ class _PerfilPageState extends State<PerfilPage> {
                               const Icon(Icons.info, color: Color.fromARGB(255, 166, 19, 0),),
                               Container(
                                   width: w-100,
-                                  child: const Text("Do not read this code to the agent. A real Sunset World agent will read it back to you - you never say it first", 
+                                  child:  Text(AppLocalizations.of(context)!.no_leer_codigo, 
                                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 166, 19, 0)),)),
                             ],
                           ),
@@ -260,8 +261,8 @@ class _PerfilPageState extends State<PerfilPage> {
                           Radius.circular(10.0) //         <--- border radius here
                       ),
                     ),
-                    child: const Text(
-                      "Generate Code",
+                    child:  Text(
+                      AppLocalizations.of(context)!.generar_codigo,
                       style: TextStyle(color: Colors.white, fontSize: 16),
                       textAlign: TextAlign.center,
                     ),
@@ -293,8 +294,8 @@ class _PerfilPageState extends State<PerfilPage> {
                           Radius.circular(10.0) //         <--- border radius here
                       ),
                     ),
-                    child: const Text(
-                      "Generate new code",
+                    child:  Text(
+                      AppLocalizations.of(context)!.generar_codigo_nuevo,
                       style: TextStyle(color: Colors.white, fontSize: 16),
                       textAlign: TextAlign.center,
                     ),

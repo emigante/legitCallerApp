@@ -187,6 +187,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Fill in all fields to log in'**
   String get complete_campos;
+
+  /// No description provided for @caller_verification.
+  ///
+  /// In en, this message translates to:
+  /// **'Caller verification'**
+  String get caller_verification;
+
+  /// No description provided for @id_permanente.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR PERMANENT ID'**
+  String get id_permanente;
+
+  /// No description provided for @comparte_codigo.
+  ///
+  /// In en, this message translates to:
+  /// **'Share this with the agent when the call begins'**
+  String get comparte_codigo;
+
+  /// No description provided for @solo_comparte.
+  ///
+  /// In en, this message translates to:
+  /// **'Only share your ID with the agent on the call. Never share password, card numbers, of other codes.'**
+  String get solo_comparte;
+
+  /// No description provided for @despues_compartir.
+  ///
+  /// In en, this message translates to:
+  /// **'After sharing your ID, tap Generate Code. The agent must read the code back to you - if they can\'t, hang up immediately.'**
+  String get despues_compartir;
+
+  /// No description provided for @codigo_aparecera.
+  ///
+  /// In en, this message translates to:
+  /// **'Code will appear here\nafter you tap Generate'**
+  String get codigo_aparecera;
+
+  /// No description provided for @generar_codigo.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate Code'**
+  String get generar_codigo;
+
+  /// No description provided for @codigo_solo_uso.
+  ///
+  /// In en, this message translates to:
+  /// **'ONE-TIME VERIFICATION CODE'**
+  String get codigo_solo_uso;
+
+  /// No description provided for @esperar_agente.
+  ///
+  /// In en, this message translates to:
+  /// **'Wait for the agent to read this back to you'**
+  String get esperar_agente;
+
+  /// No description provided for @expira_en.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires in'**
+  String get expira_en;
+
+  /// No description provided for @no_leer_codigo.
+  ///
+  /// In en, this message translates to:
+  /// **'Do not read this code to the agent. A real Sunset World agent will read it back to you - you never say it first'**
+  String get no_leer_codigo;
+
+  /// No description provided for @generar_codigo_nuevo.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate new code'**
+  String get generar_codigo_nuevo;
 }
 
 class _AppLocalizationsDelegate

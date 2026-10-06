@@ -55,4 +55,45 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get complete_campos => 'Complete todos los campos para iniciar sesión';
+
+  @override
+  String get caller_verification => 'Caller verification';
+
+  @override
+  String get id_permanente => 'TU ID PERMANENTE';
+
+  @override
+  String get comparte_codigo =>
+      'Comparte esto con el agente al inicio de la llamada';
+
+  @override
+  String get solo_comparte =>
+      'Solo comparte tu número de identificación con el agente durante la llamada. Nunca compartas contraseñas, números de tarjetas ni otros códigos.';
+
+  @override
+  String get despues_compartir =>
+      'Después de compartir tu identificación, toca “Generar código”. El agente debe leerte el código; si no puede hacerlo, cuelga de inmediato.';
+
+  @override
+  String get codigo_aparecera =>
+      'El código aparecerá aquí\ndespués de que toques «Generar»';
+
+  @override
+  String get generar_codigo => 'Generar Código';
+
+  @override
+  String get codigo_solo_uso => 'CÓDIGO DE VERIFICACIÓN DE USO ÚNICO';
+
+  @override
+  String get esperar_agente => 'Espera a que el agente te repita esto';
+
+  @override
+  String get expira_en => 'Expira en';
+
+  @override
+  String get no_leer_codigo =>
+      'No le leas este código al agente. Un agente auténtico de Sunset World te lo leerá a ti; nunca lo digas tú primero.';
+
+  @override
+  String get generar_codigo_nuevo => 'Generar código nuevo';
 }
