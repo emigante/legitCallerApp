@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:legitcaller/perfil/perfilPage.dart';
 import 'package:legitcaller/services/auth.dart';
+import 'package:legitcaller/widgets/SelectIdioma.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:provider/provider.dart';
-
+import 'package:legitcaller/l10n/app_localizations.dart';
 import '../provider/loadingProvider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -19,9 +20,8 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _password = TextEditingController();
   bool _obscureText = true;
   DataProvider _db = DataProvider();
-  double w=0, h=0;
+  double w = 0, h = 0;
   final LocalAuthentication _auth = LocalAuthentication();
-
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +34,24 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             margin: const EdgeInsets.only(left: 30),
             alignment: Alignment.centerLeft,
-            child: const Text("Sign in", style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),),
+            child: Text(
+              AppLocalizations.of(context)!.ingresar,
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
           Container(
             margin: const EdgeInsets.only(left: 30),
             alignment: Alignment.centerLeft,
-            child: const Text("Access your verification profile", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.grey),),
+            child: Text(
+              AppLocalizations.of(context)!.ingresar_sub,
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey),
+            ),
           ),
           Container(
             alignment: Alignment.centerLeft,
@@ -47,13 +59,11 @@ class _LoginPageState extends State<LoginPage> {
             child: TextFormField(
               controller: _email,
               keyboardType: TextInputType.emailAddress,
-
-              
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.grey[100],
                 hoverColor: Colors.grey[100],
-                hintText: "Email",
+                hintText: AppLocalizations.of(context)!.correo,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(25.0),
                   borderSide: const BorderSide(
@@ -68,23 +78,21 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-            
             ),
           ),
           Container(
-            
             alignment: Alignment.centerLeft,
             margin: const EdgeInsets.only(left: 25, right: 30, top: 30),
             child: TextFormField(
               controller: _password,
               keyboardType: TextInputType.visiblePassword,
               obscureText: _obscureText, // Oculta el texto si es true
-              
-              decoration:  InputDecoration(
-                 filled: true,
+
+              decoration: InputDecoration(
+                filled: true,
                 fillColor: Colors.grey[100],
                 hoverColor: Colors.grey[100],
-                hintText: "Password", 
+                hintText: AppLocalizations.of(context)!.contrasena,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(25.0),
                   borderSide: const BorderSide(
@@ -109,31 +117,34 @@ class _LoginPageState extends State<LoginPage> {
                     });
                   },
                 ),
-                
               ),
-                
-              
-            
             ),
           ),
           Container(
             margin: const EdgeInsets.only(top: 10, right: 25),
             alignment: Alignment.centerRight,
-            child: const Text("Forgot password?", style: TextStyle(fontSize: 12, decoration: TextDecoration.underline,),),
+            child: Text(
+              AppLocalizations.of(context)!.olvido_contrasena,
+              style: TextStyle(
+                fontSize: 12,
+                decoration: TextDecoration.underline,
+              ),
+            ),
           ),
+          Container(
+              margin: EdgeInsets.only(left: 35, top: 25),
+              alignment: Alignment.center,
+              child: Salectidioma()),
           Container(
             margin: const EdgeInsets.only(top: 35),
             child: InkWell(
               onTap: () async {
-
                 // Provider.of<LoadingProvider>(context, listen: false).setLoad(true);
 
                 // final result =  await _db.login(_email.text, _password.text);
 
-
                 // if(result?.status == 200){
-                  
-                 
+
                 //   Navigator.push(
                 //     context,
                 //     MaterialPageRoute(builder: (context) => const PerfilPage()),
@@ -142,9 +153,21 @@ class _LoginPageState extends State<LoginPage> {
                 // }
 
                 // 1. Bloqueamos antes de la petición
-                Provider.of<LoadingProvider>(context, listen: false).setLoad(true);
+                Provider.of<LoadingProvider>(context, listen: false)
+                    .setLoad(true);
 
                 try {
+                  if (_email.text.isEmpty || _password.text.isEmpty) {
+                    Provider.of<LoadingProvider>(context, listen: false)
+                        .setLoad(false);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                       SnackBar(
+                          content:
+                              Text(AppLocalizations.of(context)!.complete_campos)),
+                    );
+                    return;
+                  }
+
                   final result = await _db.login(_email.text, _password.text);
 
                   // 2. Verificamos si el widget sigue "vivo" antes de usar el context después de un await
@@ -152,16 +175,22 @@ class _LoginPageState extends State<LoginPage> {
 
                   if (result?.status == 200) {
                     // 3. PRIMERO quitamos el loading, LUEGO navegamos
-                    Provider.of<LoadingProvider>(context, listen: false).setLoad(false);
+                    Provider.of<LoadingProvider>(context, listen: false)
+                        .setLoad(false);
 
-                    Navigator.pushReplacement( // Usar pushReplacement para que no puedan volver al login con el botón de atrás
+                    Navigator.pushReplacement(
+                      // Usar pushReplacement para que no puedan volver al login con el botón de atrás
                       context,
-                      MaterialPageRoute(builder: (context) =>  PerfilPage(userData: result,)),
+                      MaterialPageRoute(
+                          builder: (context) => PerfilPage(
+                                userData: result,
+                              )),
                     );
                   } else {
                     // 4. Si el status no es 200, hay que desbloquear para que reintenten
-                    Provider.of<LoadingProvider>(context, listen: false).setLoad(false);
-                    
+                    Provider.of<LoadingProvider>(context, listen: false)
+                        .setLoad(false);
+
                     // Mostrar error al usuario
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Credenciales incorrectas')),
@@ -170,13 +199,10 @@ class _LoginPageState extends State<LoginPage> {
                 } catch (e) {
                   // 5. Siempre liberar el loader si algo falla catastróficamente (ej. sin internet)
                   if (mounted) {
-                    Provider.of<LoadingProvider>(context, listen: false).setLoad(false);
+                    Provider.of<LoadingProvider>(context, listen: false)
+                        .setLoad(false);
                   }
                 }
-              
-                
-                
-                
               },
               child: Container(
                 width: w,
@@ -184,12 +210,12 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.all(10),
                 decoration: const BoxDecoration(
                   color: Colors.black,
-                  borderRadius: BorderRadius.all(                      
+                  borderRadius: BorderRadius.all(
                       Radius.circular(10.0) //         <--- border radius here
-                  ),
+                      ),
                 ),
-                child: const Text(
-                  "Sign in",
+                child: Text(
+                  AppLocalizations.of(context)!.iniciar_sesion,
                   style: TextStyle(color: Colors.white, fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
@@ -225,12 +251,12 @@ class _LoginPageState extends State<LoginPage> {
     try {
       return await _auth.authenticate(
         localizedReason: 'Por favor, autentícate para acceder',
-        biometricOnly: true, 
+        biometricOnly: true,
         //  options: const AuthenticationOptions(
         //   biometricOnly: true,// Solo huella/cara, no PIN
         //   stickyAuth: true// Mantiene la app activa si se pausa brevemente
         // )
-        );
+      );
     } on PlatformException catch (e) {
       print(e);
       return false;

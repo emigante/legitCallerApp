@@ -35,6 +35,7 @@ class DatabaseServices {
       });
 
       print("Código generado con éxito: $nuevoCodigo");
+      return expiracion;
     } catch (e) {
       print("Error al guardar el código en Firestore: $e");
       rethrow;

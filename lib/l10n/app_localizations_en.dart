@@ -1,0 +1,98 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for English (`en`).
+class AppLocalizationsEn extends AppLocalizations {
+  AppLocalizationsEn([String locale = 'en']) : super(locale);
+
+  @override
+  String get antesCompartir => 'Verify who\'s really calling you';
+
+  @override
+  String get antesCompartir_sub =>
+      'Before sharing any information, use this app to confirm the caller is genuinely, from Sunset World';
+
+  @override
+  String get punto1 => 'Share your permanents ID when the call begins';
+
+  @override
+  String get punto2 =>
+      'Generate a one-time code and wait for the agent to read it back to you';
+
+  @override
+  String get punto3 => 'If they can\'t confirm it, hang up immediately';
+
+  @override
+  String get empezar => 'Get started';
+
+  @override
+  String get antifraude => 'Anti-fraud protection';
+
+  @override
+  String get ingresar => 'Sign in';
+
+  @override
+  String get ingresar_sub => 'Access your verification profile';
+
+  @override
+  String get correo => 'Email';
+
+  @override
+  String get contrasena => 'Password';
+
+  @override
+  String get olvido_contrasena => 'Forgot password?';
+
+  @override
+  String get idioma => 'Language';
+
+  @override
+  String get iniciar_sesion => 'Log in';
+
+  @override
+  String get complete_campos => 'Fill in all fields to log in';
+
+  @override
+  String get caller_verification => 'Caller verification';
+
+  @override
+  String get id_permanente => 'YOUR PERMANENT ID';
+
+  @override
+  String get comparte_codigo =>
+      'Share this with the agent when the call begins';
+
+  @override
+  String get solo_comparte =>
+      'Only share your ID with the agent on the call. Never share password, card numbers, of other codes.';
+
+  @override
+  String get despues_compartir =>
+      'After sharing your ID, tap Generate Code. The agent must read the code back to you - if they can\'t, hang up immediately.';
+
+  @override
+  String get codigo_aparecera =>
+      'Code will appear here\nafter you tap Generate';
+
+  @override
+  String get generar_codigo => 'Generate Code';
+
+  @override
+  String get codigo_solo_uso => 'ONE-TIME VERIFICATION CODE';
+
+  @override
+  String get esperar_agente => 'Wait for the agent to read this back to you';
+
+  @override
+  String get expira_en => 'Expires in';
+
+  @override
+  String get no_leer_codigo =>
+      'Do not read this code to the agent. A real Sunset World agent will read it back to you - you never say it first';
+
+  @override
+  String get generar_codigo_nuevo => 'Generate new code';
+}
