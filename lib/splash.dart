@@ -1,178 +1,213 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:legitcaller/l10n/app_localizations.dart';
 import 'package:legitcaller/login/loginPage.dart';
 
-
 class Splash extends StatefulWidget {
-  const Splash({ Key? key }) : super(key: key);
+  const Splash({Key? key}) : super(key: key);
+
   @override
   State<Splash> createState() => _SplashState();
 }
 
 class _SplashState extends State<Splash> {
-  
-  double? w, h, scale;
   @override
   Widget build(BuildContext context) {
-    w = MediaQuery.of(context).size.width;
-    h = MediaQuery.of(context).size.height;
-    scale = MediaQuery.textScalerOf(context).scale(1);
+    final primaryColor = const Color(0xFF21A6EA);
+    final backgroundColor = const Color(0xFFF8FAFC);
+    final cardColor = Colors.white;
+
     return Scaffold(
-      backgroundColor: Colors.white,
-        body: 
-              SingleChildScrollView(
-                child: SizedBox(
-                height: h,
-                child: Column(
+      backgroundColor: backgroundColor,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 12),
+
+              // --- BADGE ANTIFRAUDE ---
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFE0F2FE),
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(color: primaryColor.withOpacity(0.3)),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                   
-                    Container(
-                        alignment: Alignment.centerLeft,
-                        padding: const EdgeInsets.only(left: 10, right: 10),
-                        //width: 200,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 220, 251, 233),
-                          border: Border.all(
-                            width: 1.0, color: const Color(0xFF0a6641)
-                          ),
-                          borderRadius: const BorderRadius.all(
-                              Radius.circular(25.0) //                 <--- border radius here
-                          ),
-                        ),
-                        margin: const EdgeInsets.only(top: 60, left: 40, right: 110),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.circle, size: 12, color: Color(0xFF0a6641),),
-                            Text(AppLocalizations.of(context)!.antifraude,
-                                style: TextStyle(fontSize: scale! > 1.6 ? 16: 14, color: const Color(0xFF0a6641), fontWeight: FontWeight.bold)),
-                          ],
-                        )),
-                   
-                    Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.only(left: 44, right: 44),
-                        margin: const EdgeInsets.only(top: 20),
-                        child: Text(AppLocalizations.of(context)!.antesCompartir,
-                            style: TextStyle(fontSize: scale! > 1.6 ? 16: 24, color: Colors.black, fontWeight: FontWeight.bold))),
-                    Container(
-                        padding: const EdgeInsets.only(left: 44, right: 44, top: 25),
-                        child: Text(AppLocalizations.of(context)!.antesCompartir_sub,
-                          style: TextStyle(
-                              fontSize: scale! > 1.6 ? 12: 16, color:const Color.fromRGBO(65, 63, 67, 0.5)),
-                        )),
-
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.all(10),
-                      //width: 400,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 239, 238, 238),
-                        border: Border.all(
-                          width: 1.0, color: Color.fromARGB(255, 208, 208, 208)
-                        ),
-                        borderRadius: const BorderRadius.all(
-                            Radius.circular(5.0) //                 <--- border radius here
-                        ),
+                    Icon(Icons.shield_rounded, size: 16, color: primaryColor),
+                    const SizedBox(width: 8),
+                    Text(
+                      AppLocalizations.of(context)!.antifraude,
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: primaryColor,
+                        fontWeight: FontWeight.bold,
                       ),
-                      margin: const EdgeInsets.only(top: 40, left: 30, right: 30),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.circle, size: 40, color: Colors.black,),
-                          Container(
-                            width: 250,
-                            child: Text(AppLocalizations.of(context)!.punto1,
-                                style: TextStyle(fontSize: scale! > 1.6 ? 16: 14, color: Color.fromARGB(255, 50, 50, 50), fontWeight: FontWeight.bold)),
-                          ),
-                        ],
-                      )),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.all(10),
-                      //width: 400,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 239, 238, 238),
-                        border: Border.all(
-                          width: 1.0, color: Color.fromARGB(255, 208, 208, 208)
-                        ),
-                        borderRadius: const BorderRadius.all(
-                            Radius.circular(5.0) //                 <--- border radius here
-                        ),
-                      ),
-                      margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.circle, size: 40, color: Colors.black,),
-                          Container(
-                            width: 250,
-                            child: Text(AppLocalizations.of(context)!.punto2,
-                                style: TextStyle(fontSize: scale! > 1.6 ? 16: 14, color: Color.fromARGB(255, 50, 50, 50), fontWeight: FontWeight.bold)),
-                          ),
-                        ],
-                      )),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.all(10),
-                      //width: 400,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 239, 238, 238),
-                        border: Border.all(
-                          width: 1.0, color: Color.fromARGB(255, 208, 208, 208)
-                        ),
-                        borderRadius: const BorderRadius.all(
-                            Radius.circular(5.0) //                 <--- border radius here
-                        ),
-                      ),
-                      margin: const EdgeInsets.only(top: 20, left: 30, right: 30),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.circle, size: 40, color: Colors.black,),
-                          Container(
-                            width: 250,
-                            child: Text(AppLocalizations.of(context)!.punto3,
-                                style: TextStyle(fontSize: scale! > 1.6 ? 16: 14, color: Color.fromARGB(255, 50, 50, 50), fontWeight: FontWeight.bold)),
-                          ),
-                        ],
-                      )),
-
-                    InkWell(
-                      onTap: () async {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const LoginPage()),
-                        );
-                      },
-                      child: Container(
-                          width: w,
-                          //height: 220,
-                          margin:const EdgeInsets.only(left: 30, right: 30, top: 90),
-                          padding: const EdgeInsets.only(top: 10, bottom: 10),
-                          alignment: Alignment.center,
-                          decoration: const BoxDecoration(
-                            color: Colors.black, //Color(0xFF5E1281),
-                            borderRadius: BorderRadius.all(Radius.circular(10))
-                          ),
-                          child:  Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                AppLocalizations.of(context)!.empezar,
-                                style: TextStyle(fontSize: scale! > 1.6 ? 10 : 16, color: Colors.white),
-                              ),
-                              const Icon(
-                                FontAwesomeIcons.arrowRight,
-                                color: Colors.white,
-                                size: 18,
-                              )
-                            ],
-                          )))
+                    ),
                   ],
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              // --- TÍTULOS PRINCIPALES ---
+              Text(
+                AppLocalizations.of(context)!.antesCompartir,
+                style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF0F172A),
+                  height: 1.2,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                AppLocalizations.of(context)!.antesCompartir_sub,
+                style: const TextStyle(
+                  fontSize: 15,
+                  height: 1.5,
+                  color: Color(0xFF64748B),
+                ),
+              ),
+
+              const SizedBox(height: 32),
+
+              // --- LISTA DE PASOS (CARDS) ---
+              _buildStepCard(
+                context,
+                stepNumber: "01",
+                text: AppLocalizations.of(context)!.punto1,
+                icon: Icons.badge_outlined,
+                cardColor: cardColor,
+                primaryColor: primaryColor,
+              ),
+              const SizedBox(height: 14),
+
+              _buildStepCard(
+                context,
+                stepNumber: "02",
+                text: AppLocalizations.of(context)!.punto2,
+                icon: Icons.key_rounded,
+                cardColor: cardColor,
+                primaryColor: primaryColor,
+              ),
+              const SizedBox(height: 14),
+
+              _buildStepCard(
+                context,
+                stepNumber: "03",
+                text: AppLocalizations.of(context)!.punto3,
+                icon: Icons.phone_disabled_rounded,
+                cardColor: cardColor,
+                primaryColor: primaryColor,
+              ),
+
+              const SizedBox(height: 40),
+
+              // --- BOTÓN PRINCIPAL "EMPEZAR" ---
+              SizedBox(
+                width: double.infinity,
+                height: 56,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const LoginPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Color(0xFF1D88E5),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    shadowColor: primaryColor.withOpacity(0.4),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        AppLocalizations.of(context)!.empezar,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      const Icon(
+                        FontAwesomeIcons.arrowRight,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // WIDGET REUTILIZABLE PARA CADA CARD DE PASO
+  Widget _buildStepCard(
+    BuildContext context, {
+    required String stepNumber,
+    required String text,
+    required IconData icon,
+    required Color cardColor,
+    required Color primaryColor,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: cardColor,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: const Color(0xFFF1F5F9)),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF64748B).withOpacity(0.05),
+            blurRadius: 15,
+            offset: const Offset(0, 6),
+          )
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              color: const Color(0xFFF8FAFC),
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: const Color(0xFFE2E8F0)),
             ),
-      )),
-      
-            
-          
-        );
+            child: Center(
+              child: Icon(icon, color: primaryColor, size: 22),
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF1E293B),
+                height: 1.3,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

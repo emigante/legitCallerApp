@@ -158,17 +158,35 @@ abstract class AppLocalizations {
   /// **'Email'**
   String get correo;
 
+  /// No description provided for @bienvenido.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, welcome'**
+  String get bienvenido;
+
   /// No description provided for @contrasena.
   ///
   /// In en, this message translates to:
   /// **'Password'**
   String get contrasena;
 
+  /// No description provided for @contrasena_enter.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter password'**
+  String get contrasena_enter;
+
   /// No description provided for @olvido_contrasena.
   ///
   /// In en, this message translates to:
   /// **'Forgot password?'**
   String get olvido_contrasena;
+
+  /// No description provided for @credenciales.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect credentials'**
+  String get credenciales;
 
   /// No description provided for @idioma.
   ///
@@ -193,6 +211,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Caller verification'**
   String get caller_verification;
+
+  /// No description provided for @next_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Your next code'**
+  String get next_code;
+
+  /// No description provided for @sin_generar.
+  ///
+  /// In en, this message translates to:
+  /// **'Without generating'**
+  String get sin_generar;
+
+  /// No description provided for @activo.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get activo;
 
   /// No description provided for @id_permanente.
   ///

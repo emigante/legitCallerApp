@@ -39,13 +39,22 @@ class AppLocalizationsEs extends AppLocalizations {
   String get ingresar_sub => 'Accede a tu perfil de verificación';
 
   @override
-  String get correo => 'Correo';
+  String get correo => 'Correo electrónico';
+
+  @override
+  String get bienvenido => 'Hola, bienvenido';
 
   @override
   String get contrasena => 'Contraseña';
 
   @override
+  String get contrasena_enter => 'Ingresa contraseña';
+
+  @override
   String get olvido_contrasena => '¿Olvidó su contraseña?';
+
+  @override
+  String get credenciales => 'Credenciales incorrectas';
 
   @override
   String get idioma => 'Idioma';
@@ -58,6 +67,15 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get caller_verification => 'Caller verification';
+
+  @override
+  String get next_code => 'Tu próximo código';
+
+  @override
+  String get sin_generar => 'Sin generar';
+
+  @override
+  String get activo => 'Activo';
 
   @override
   String get id_permanente => 'TU ID PERMANENTE';

@@ -41,10 +41,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get correo => 'Email';
 
   @override
+  String get bienvenido => 'Hello, welcome';
+
+  @override
   String get contrasena => 'Password';
 
   @override
+  String get contrasena_enter => 'Enter password';
+
+  @override
   String get olvido_contrasena => 'Forgot password?';
+
+  @override
+  String get credenciales => 'Incorrect credentials';
 
   @override
   String get idioma => 'Language';
@@ -57,6 +66,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get caller_verification => 'Caller verification';
+
+  @override
+  String get next_code => 'Your next code';
+
+  @override
+  String get sin_generar => 'Without generating';
+
+  @override
+  String get activo => 'Active';
 
   @override
   String get id_permanente => 'YOUR PERMANENT ID';

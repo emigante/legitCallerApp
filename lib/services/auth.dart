@@ -60,9 +60,8 @@ class DataProvider {
     UserData? result;
 
     final body = {
-        
-    "username": "alonzo.verdugo@gmail.com",
-    "password": "123456789"
+      "username": email,
+      "password": pwd
 
     };
 
@@ -80,11 +79,6 @@ class DataProvider {
         result = UserData.fromJson(json.decode(response.body))  ;
 
         return result;
-
-      //}
-
-     
-      
 
     } catch (e) {
       print(

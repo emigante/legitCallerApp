@@ -38,7 +38,7 @@ class _SalectidiomaState extends State<Salectidioma> {
           style: const ButtonStyle(elevation: WidgetStatePropertyAll<double>(10)),
           child: Container(
             decoration: BoxDecoration(
-               color: Colors.black,
+              color: Color(0xFF1D88E5),
               borderRadius: const BorderRadius.all(Radius.circular(10))
             ),
             padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),

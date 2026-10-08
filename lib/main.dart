@@ -6,6 +6,7 @@ import 'package:legitcaller/l10n/app_localizations.dart';
 import 'package:legitcaller/models/preferenciasUsuario.dart';
 import 'package:legitcaller/provider/LocalProvider.dart';
 import 'package:legitcaller/splash.dart';
+import 'package:legitcaller/widgets/splashScreen.dart';
 import 'package:legitcaller/widgets/splashView.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -85,7 +86,7 @@ class _MyAppState extends State<MyApp> {
                 Locale('es'),
               ],
               builder: LoadingScreen.init(),
-              home: const Splash(),
+              home: const SplashScreen(),
             );
           });
         });

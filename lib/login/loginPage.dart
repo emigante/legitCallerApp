@@ -28,52 +28,72 @@ class _LoginPageState extends State<LoginPage> {
     w = MediaQuery.of(context).size.width;
     h = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Color(0xFFF8FAFC),
+      appBar: AppBar(backgroundColor: Color(0xFFF8FAFC),),
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
-            margin: const EdgeInsets.only(left: 30),
-            alignment: Alignment.centerLeft,
+            child: Image.asset("assets/images/logosinfondo.png", height: 120,),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 20),
+            alignment: Alignment.center,
             child: Text(
               AppLocalizations.of(context)!.ingresar,
               style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
+                  fontSize: 32,
+                  color: Color.fromRGBO(5, 21, 47, 1),
                   fontWeight: FontWeight.bold),
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(left: 30),
-            alignment: Alignment.centerLeft,
+            margin: const EdgeInsets.only(top: 10),
+            alignment: Alignment.center,
             child: Text(
               AppLocalizations.of(context)!.ingresar_sub,
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: Colors.grey),
+                  color: Color(0xFF1D88E5)),
             ),
           ),
+
+          
+          Container(
+            margin: const EdgeInsets.only(top: 30, left: 30),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              AppLocalizations.of(context)!.correo,
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromRGBO(5, 21, 47, 1),),
+            ),
+          ),
+
+          
           Container(
             alignment: Alignment.centerLeft,
-            margin: const EdgeInsets.only(left: 25, right: 30, top: 30),
+            margin: const EdgeInsets.only(left: 25, right: 30, top: 10),
             child: TextFormField(
               controller: _email,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Colors.grey[100],
+                fillColor: Colors.transparent,
                 hoverColor: Colors.grey[100],
-                hintText: AppLocalizations.of(context)!.correo,
+                hintText: "correo@ejemplo.com",
+                hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(25.0),
                   borderSide: const BorderSide(
-                    color: Colors.grey,
+                    color: Color.fromRGBO(5, 21, 47, 1),
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(25.0),
                   borderSide: const BorderSide(
-                    color: Colors.grey,
+                    color: Color.fromRGBO(5, 21, 47, 1),
                     width: 2.0,
                   ),
                 ),
@@ -81,8 +101,19 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Container(
+            margin: const EdgeInsets.only(top: 10, left: 30),
             alignment: Alignment.centerLeft,
-            margin: const EdgeInsets.only(left: 25, right: 30, top: 30),
+            child: Text(
+              AppLocalizations.of(context)!.contrasena,
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromRGBO(5, 21, 47, 1),),
+            ),
+          ),
+          Container(
+            alignment: Alignment.centerLeft,
+            margin: const EdgeInsets.only(left: 25, right: 30, top: 10),
             child: TextFormField(
               controller: _password,
               keyboardType: TextInputType.visiblePassword,
@@ -90,19 +121,20 @@ class _LoginPageState extends State<LoginPage> {
 
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Colors.grey[100],
+                fillColor: Colors.transparent,
                 hoverColor: Colors.grey[100],
-                hintText: AppLocalizations.of(context)!.contrasena,
+                hintText: AppLocalizations.of(context)!.contrasena_enter,
+                hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(25.0),
                   borderSide: const BorderSide(
-                    color: Colors.grey,
+                    color: Color.fromRGBO(5, 21, 47, 1),
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(25.0),
                   borderSide: const BorderSide(
-                    color: Colors.grey,
+                    color: Color.fromRGBO(5, 21, 47, 1),
                     width: 2.0,
                   ),
                 ),
@@ -120,17 +152,17 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(top: 10, right: 25),
-            alignment: Alignment.centerRight,
-            child: Text(
-              AppLocalizations.of(context)!.olvido_contrasena,
-              style: TextStyle(
-                fontSize: 12,
-                decoration: TextDecoration.underline,
-              ),
-            ),
-          ),
+          // Container(
+          //   margin: const EdgeInsets.only(top: 10, right: 25),
+          //   alignment: Alignment.centerRight,
+          //   child: Text(
+          //     AppLocalizations.of(context)!.olvido_contrasena,
+          //     style: TextStyle(
+          //       fontSize: 12,
+          //       decoration: TextDecoration.underline,
+          //     ),
+          //   ),
+          // ),
           Container(
               margin: EdgeInsets.only(left: 35, top: 25),
               alignment: Alignment.center,
@@ -193,7 +225,7 @@ class _LoginPageState extends State<LoginPage> {
 
                     // Mostrar error al usuario
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Credenciales incorrectas')),
+                       SnackBar(content: Text(AppLocalizations.of(context)!.credenciales)),
                     );
                   }
                 } catch (e) {
@@ -209,7 +241,7 @@ class _LoginPageState extends State<LoginPage> {
                 margin: const EdgeInsets.only(left: 30, right: 30),
                 padding: const EdgeInsets.all(10),
                 decoration: const BoxDecoration(
-                  color: Colors.black,
+                  color: Color(0xFF1D88E5),
                   borderRadius: BorderRadius.all(
                       Radius.circular(10.0) //         <--- border radius here
                       ),
