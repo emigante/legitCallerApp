@@ -1,6 +1,6 @@
 {
   "antesCompartir": "Verify who's really calling you",
-  "antesCompartir_sub": "Before sharing any information, use this app to confirm the caller is genuinely, from Sunset World",
+  "antesCompartir_sub": "Before sharing any information, use this app to confirm that the caller is truly a verified agent.",
   "punto1": "Share your permanents ID when the call begins",
   "punto2": "Generate a one-time code and wait for the agent to read it back to you",
   "punto3": "If they can't confirm it, hang up immediately",
@@ -28,8 +28,11 @@
   "codigo_aparecera": "Code will appear here\nafter you tap Generate",
   "generar_codigo":"Generate Code",
   "codigo_solo_uso":"ONE-TIME VERIFICATION CODE",
-  "esperar_agente":"Wait for the agent to read this back to you",
+  "mencionar_id": "Give the agent your PERMANENT ID code when requested",
+  "esperar_agente":"Wait for the agent to repeat this code to you. DO NOT share it. If the agent CANNOT repeat it, HANG UP IMMEDIATELY and report it to email: ",
   "expira_en":"Expires in",
+  "no_compartir":"DO NOT SHARE",
+  "recuerde": "Remember this code DO NOT share it with the agent, wait for him to repeat it to you, IF HE CAN'T, hang up IMMEDIATELY",
   "no_leer_codigo":"Do not read this code to the agent. A real Sunset World agent will read it back to you - you never say it first",
   "generar_codigo_nuevo":"Generate new code"
 

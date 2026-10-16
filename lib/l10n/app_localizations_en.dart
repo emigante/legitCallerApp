@@ -13,7 +13,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get antesCompartir_sub =>
-      'Before sharing any information, use this app to confirm the caller is genuinely, from Sunset World';
+      'Before sharing any information, use this app to confirm that the caller is truly a verified agent.';
 
   @override
   String get punto1 => 'Share your permanents ID when the call begins';
@@ -102,10 +102,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get codigo_solo_uso => 'ONE-TIME VERIFICATION CODE';
 
   @override
-  String get esperar_agente => 'Wait for the agent to read this back to you';
+  String get mencionar_id =>
+      'Give the agent your PERMANENT ID code when requested';
+
+  @override
+  String get esperar_agente =>
+      'Wait for the agent to repeat this code to you. DO NOT share it. If the agent CANNOT repeat it, HANG UP IMMEDIATELY and report it to email: ';
 
   @override
   String get expira_en => 'Expires in';
+
+  @override
+  String get no_compartir => 'DO NOT SHARE';
+
+  @override
+  String get recuerde =>
+      'Remember this code DO NOT share it with the agent, wait for him to repeat it to you, IF HE CAN\'T, hang up IMMEDIATELY';
 
   @override
   String get no_leer_codigo =>

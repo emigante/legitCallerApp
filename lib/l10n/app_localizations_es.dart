@@ -13,7 +13,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get antesCompartir_sub =>
-      'Antes de compartir cualquier información, utiliza esta aplicación para confirmar que la persona que llama es realmente de Sunset World.';
+      'Antes de compartir cualquier información, utiliza esta aplicación para confirmar que la persona que llama es realmente es un agente verificado';
 
   @override
   String get punto1 =>
@@ -103,14 +103,26 @@ class AppLocalizationsEs extends AppLocalizations {
   String get codigo_solo_uso => 'CÓDIGO DE VERIFICACIÓN DE USO ÚNICO';
 
   @override
-  String get esperar_agente => 'Espera a que el agente te repita esto';
+  String get mencionar_id =>
+      'Dele al agente el codigo de su ID PERMANENTE cuando se lo solicite';
+
+  @override
+  String get esperar_agente =>
+      'Espere a que el agente le repita este codigo. NO lo comparta. Si el agente NO puede repetirlo CUELGUE INMEDIATAMENTE y reportelo al email: ';
 
   @override
   String get expira_en => 'Expira en';
 
   @override
+  String get no_compartir => 'NO COMPARTIR';
+
+  @override
+  String get recuerde =>
+      'Recuerde este codigo NO lo comparta con el agente, espere a que este se lo repita, SI NO PUEDE cuelgue INMEDIATAMENTE';
+
+  @override
   String get no_leer_codigo =>
-      'No le leas este código al agente. Un agente auténtico de Sunset World te lo leerá a ti; nunca lo digas tú primero.';
+      'No le leas este código al agente. Un agente auténtico te lo leerá a ti; nunca lo digas tú primero.';
 
   @override
   String get generar_codigo_nuevo => 'Generar código nuevo';

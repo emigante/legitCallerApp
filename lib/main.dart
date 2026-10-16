@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:legitcaller/conection/conection.dart';
 import 'package:legitcaller/firebase_options.dart';
 import 'package:legitcaller/l10n/app_localizations.dart';
 import 'package:legitcaller/models/preferenciasUsuario.dart';
@@ -43,12 +44,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   late PreferenciasUsuario usuario;
+  final DatabaseServices _db = DatabaseServices();
 
   
   _initPreference() async {
     usuario = PreferenciasUsuario();
     await usuario.initPref();
     await Future.delayed(const Duration(seconds: 1));
+    await _db.getConfiguracion();
+
   }
 
    @override

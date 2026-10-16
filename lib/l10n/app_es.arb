@@ -1,6 +1,6 @@
 {
   "antesCompartir": "Comprueba quién te está llamando realmente",
-  "antesCompartir_sub": "Antes de compartir cualquier información, utiliza esta aplicación para confirmar que la persona que llama es realmente de Sunset World.",
+  "antesCompartir_sub": "Antes de compartir cualquier información, utiliza esta aplicación para confirmar que la persona que llama es realmente es un agente verificado",
   "punto1": "Facilita tu número de identificación permanente al inicio de la llamada",
   "punto2": "Genera un código de un solo uso y espera a que el agente te lo repita",
   "punto3": "Si no pueden confirmarlo, cuelga inmediatamente",
@@ -28,8 +28,11 @@
   "codigo_aparecera":"El código aparecerá aquí\ndespués de que toques «Generar»",
   "generar_codigo":"Generar Código",
   "codigo_solo_uso":"CÓDIGO DE VERIFICACIÓN DE USO ÚNICO",
-  "esperar_agente":"Espera a que el agente te repita esto",
+  "mencionar_id": "Dele al agente el codigo de su ID PERMANENTE cuando se lo solicite",
+  "no_compartir":"NO COMPARTIR",
+  "esperar_agente":"Espere a que el agente le repita este codigo. NO lo comparta. Si el agente NO puede repetirlo CUELGUE INMEDIATAMENTE y reportelo al email: ",
+  "recuerde":"Recuerde este codigo NO lo comparta con el agente, espere a que este se lo repita, SI NO PUEDE cuelgue INMEDIATAMENTE",
   "expira_en":"Expira en",
-  "no_leer_codigo":"No le leas este código al agente. Un agente auténtico de Sunset World te lo leerá a ti; nunca lo digas tú primero.",
+  "no_leer_codigo":"No le leas este código al agente. Un agente auténtico te lo leerá a ti; nunca lo digas tú primero.",
   "generar_codigo_nuevo":"Generar código nuevo"
 }

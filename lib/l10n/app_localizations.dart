@@ -107,7 +107,7 @@ abstract class AppLocalizations {
   /// No description provided for @antesCompartir_sub.
   ///
   /// In en, this message translates to:
-  /// **'Before sharing any information, use this app to confirm the caller is genuinely, from Sunset World'**
+  /// **'Before sharing any information, use this app to confirm that the caller is truly a verified agent.'**
   String get antesCompartir_sub;
 
   /// No description provided for @punto1.
@@ -272,10 +272,16 @@ abstract class AppLocalizations {
   /// **'ONE-TIME VERIFICATION CODE'**
   String get codigo_solo_uso;
 
+  /// No description provided for @mencionar_id.
+  ///
+  /// In en, this message translates to:
+  /// **'Give the agent your PERMANENT ID code when requested'**
+  String get mencionar_id;
+
   /// No description provided for @esperar_agente.
   ///
   /// In en, this message translates to:
-  /// **'Wait for the agent to read this back to you'**
+  /// **'Wait for the agent to repeat this code to you. DO NOT share it. If the agent CANNOT repeat it, HANG UP IMMEDIATELY and report it to email: '**
   String get esperar_agente;
 
   /// No description provided for @expira_en.
@@ -283,6 +289,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Expires in'**
   String get expira_en;
+
+  /// No description provided for @no_compartir.
+  ///
+  /// In en, this message translates to:
+  /// **'DO NOT SHARE'**
+  String get no_compartir;
+
+  /// No description provided for @recuerde.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember this code DO NOT share it with the agent, wait for him to repeat it to you, IF HE CAN\'T, hang up IMMEDIATELY'**
+  String get recuerde;
 
   /// No description provided for @no_leer_codigo.
   ///

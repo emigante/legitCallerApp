@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:legitcaller/bloc/usuario_bloc.dart';
 import 'package:legitcaller/conection/conection.dart';
 import 'package:legitcaller/login/loginPage.dart';
 import 'package:legitcaller/models/userData.dart';
@@ -23,6 +24,7 @@ class _PerfilPageState extends State<PerfilPage> {
   Key _countdownKey = UniqueKey();
   DatabaseServices db = DatabaseServices();
   late DateTime _endTime;
+  UsuarioBloc _usuarioBloc = UsuarioBloc();
 
   Duration get _remainingDuration {
     final remaining = _endTime.difference(DateTime.now());
@@ -195,6 +197,17 @@ class _PerfilPageState extends State<PerfilPage> {
                     ),
 
                     const SizedBox(height: 16),
+                    Container(
+                        margin: EdgeInsets.only(bottom: 15),
+                        child: Text(
+                          AppLocalizations.of(context)!.mencionar_id,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF64748B)
+                          ),
+                        ),
+                      ),
 
                     // MEMBERSHIP ID / PERMANENT ID DISPLAY
                     Container(
@@ -204,14 +217,20 @@ class _PerfilPageState extends State<PerfilPage> {
                         color: const Color(0xFFF8FAFC),
                         borderRadius: BorderRadius.circular(14),
                       ),
-                      child: Text(
-                        widget.userData?.data.contracts.first.membership.toString() ?? "119-10-601",
-                        style: const TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF0F172A),
-                          letterSpacing: 1.2,
-                        ),
+                      child: Column(
+                        children: [
+                          
+                          
+                          Text(
+                            widget.userData?.data.contracts.first.membership.toString() ?? "",
+                            style: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF0F172A),
+                              letterSpacing: 1.2,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
 
@@ -259,9 +278,12 @@ class _PerfilPageState extends State<PerfilPage> {
                           children: [
                             const Icon(Icons.copy_rounded, size: 14, color: Color(0xFF64748B)),
                             const SizedBox(width: 4),
-                            Text(
-                              AppLocalizations.of(context)!.esperar_agente,
-                              style: const TextStyle(fontSize: 12, color: Color(0xFF64748B)),
+                            Container(
+                              width: (MediaQuery.of(context).size.width)/2,
+                              child: Text(
+                                "${AppLocalizations.of(context)!.esperar_agente}  ${_usuarioBloc.emailSoporte}",
+                                style: const TextStyle(fontSize: 12, color: Color(0xFF64748B)),
+                              ),
                             ),
                           ],
                         ),
@@ -283,6 +305,16 @@ class _PerfilPageState extends State<PerfilPage> {
                               fontSize: 16,
                             ),
                             duration: _remainingDuration,
+                            onDone: () {
+                              // Aquí ejecutas la lógica cuando el contador termine
+                              print('El tiempo ha finalizado');
+                              setState(() {
+                                show = false;
+                                code = "";
+                                _countdownKey = UniqueKey();
+                                //_endTime = null;
+                              });
+                            },
                           ),
                         ],
                       ),
@@ -305,7 +337,7 @@ class _PerfilPageState extends State<PerfilPage> {
                       width: double.infinity,
                       height: 52,
                       child: ElevatedButton(
-                        onPressed: _generateNewCode,
+                        onPressed: () => _confirmar(),
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: primaryColor,
@@ -343,6 +375,32 @@ class _PerfilPageState extends State<PerfilPage> {
           ),
         ),
       ),
+    );
+  }
+
+
+  void _confirmar() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(AppLocalizations.of(context)!.no_compartir),
+          content: Text(AppLocalizations.of(context)!.recuerde),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text("Cancelar", style: TextStyle(color: Colors.grey)),
+            ),
+            TextButton(
+              onPressed: () async {
+                _generateNewCode();
+                Navigator.of(context).pop();
+              },
+              child: const Text("Aceptar", style: TextStyle(color: Colors.red)),
+            ),
+          ],
+        );
+      },
     );
   }
 }
